@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Button } from '@material-ui/core';
+import Message from '../Messages/Message';
+
+import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
 import './App.css';
 
 const App = () => {
@@ -18,10 +20,9 @@ const App = () => {
   return (
     <div>
       {/* Inpur field */}
-
-      <form>
-        <input value={input} onChange={(e) => setInput(e.target.value)} />
-        {/* Send Chat button */}
+      <FormControl>
+        <InputLabel>Enter Your message</InputLabel>
+        <Input value={input} onChange={(e) => setInput(e.target.value)}></Input>
         <Button
           disabled={!input}
           variant='contained'
@@ -31,11 +32,10 @@ const App = () => {
         >
           Send Message
         </Button>
-      </form>
+      </FormControl>
 
-      {/* Messages themselves */}
       {messages.map((message) => {
-        return <p>{message}</p>;
+        return <Message text={message} />;
       })}
     </div>
   );

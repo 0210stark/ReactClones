@@ -7,8 +7,7 @@ import './App.css';
 const App = () => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState(['hey', 'yo']);
-
-  console.log(messages);
+  const [userName, setUserName] = useState('');
 
   const sendMessage = (event) => {
     // all the logic to send a messagegoes gere

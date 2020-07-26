@@ -6,18 +6,21 @@ import './App.css';
 
 const App = () => {
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState(['hey', 'yo']);
+  const [messages, setMessages] = useState([
+    { username: 'vidit0210', text: 'Heya!' },
+    { username: 'cris', text: 'sup' },
+  ]);
   const [userName, setUserName] = useState('');
 
   useEffect(() => {
     setUserName(prompt('Please Enter your name'));
-  }, [userName]);
+  }, []);
 
   const sendMessage = (event) => {
     // all the logic to send a messagegoes gere
     event.preventDefault();
 
-    setMessages([...messages, input]);
+    setMessages([...messages, { username: userName, text: input }]);
     setInput('');
   };
   return (
@@ -39,7 +42,7 @@ const App = () => {
       </FormControl>
 
       {messages.map((message) => {
-        return <Message text={message} />;
+        return <Message username={message.username} text={message.text} />;
       })}
     </div>
   );

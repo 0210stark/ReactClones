@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from '@material-ui/core';
 import './App.css';
 
 const App = () => {
@@ -9,9 +10,8 @@ const App = () => {
 
   const sendMessage = (event) => {
     // all the logic to send a messagegoes gere
-    if (input.length === 0) {
-      return alert('Please Enter a meessage');
-    }
+    event.preventDefault();
+
     setMessages([...messages, input]);
     setInput('');
   };
@@ -22,9 +22,15 @@ const App = () => {
       <form>
         <input value={input} onChange={(e) => setInput(e.target.value)} />
         {/* Send Chat button */}
-        <button type='submit' onClick={sendMessage}>
+        <Button
+          disabled={!input}
+          variant='contained'
+          color='primary'
+          type='submit'
+          onClick={sendMessage}
+        >
           Send Message
-        </button>
+        </Button>
       </form>
 
       {/* Messages themselves */}

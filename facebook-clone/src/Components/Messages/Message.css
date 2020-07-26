@@ -9,3 +9,11 @@
   color: white;
   text-align: left !important;
 }
+
+.message__userCard {
+  background-color: blue !important;
+}
+
+.message__questCard {
+  background-color: grey !important;
+}

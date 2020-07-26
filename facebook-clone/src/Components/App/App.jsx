@@ -42,7 +42,7 @@ const App = () => {
       </FormControl>
 
       {messages.map((message) => {
-        return <Message username={message.username} text={message.text} />;
+        return <Message username={userName} message={message} />;
       })}
     </div>
   );

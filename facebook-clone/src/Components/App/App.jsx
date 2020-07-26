@@ -3,7 +3,7 @@ import './App.css';
 
 const App = () => {
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(['hey', 'yo']);
 
   console.log(messages);
 
@@ -18,9 +18,19 @@ const App = () => {
   return (
     <div>
       {/* Inpur field */}
-      <input value={input} onChange={(e) => setInput(e.target.value)} />
-      {/* Send Chat button */}
-      <button onClick={sendMessage}>Send Message</button>
+
+      <form>
+        <input value={input} onChange={(e) => setInput(e.target.value)} />
+        {/* Send Chat button */}
+        <button type='submit' onClick={sendMessage}>
+          Send Message
+        </button>
+      </form>
+
+      {/* Messages themselves */}
+      {messages.map((message) => {
+        return <p>{message}</p>;
+      })}
     </div>
   );
 };
